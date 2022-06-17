@@ -2,6 +2,9 @@
 
 A new Flutter project.
 
+# Example
+<img src="assets/repo/Screenshot_20220617_121841.png" width=500>
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
