@@ -10,11 +10,14 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   final GlobalKey<SfPdfViewerState> _pdfViewerKey = GlobalKey();
+  late PdfViewerController _pdfViewerController;
 
   @override
   void initState() {
+    _pdfViewerController = PdfViewerController();
     super.initState();
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +37,14 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ],
       ),
-      body: SfPdfViewer.network(
-        //'https://import.cdn.thinkific-staging.com/7913/courses/36670/YSSuryaStanding220127004956-220609-160856.pdf',
-         'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
-        key: _pdfViewerKey,
+      body: Semantics(
+        label: 'Syncfusion Flutter PDF Viewer',
+        child: SfPdfViewer.network(
+          //'https://import.cdn.thinkific-staging.com/7913/courses/36670/YSSuryaStanding220127004956-220609-160856.pdf',
+           'https://cdn.syncfusion.com/content/PDFViewer/flutter-succinctly.pdf',
+          controller: _pdfViewerController,
+          key: _pdfViewerKey,
+        ),
       ),
     );
   }
